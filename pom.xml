@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycila</groupId>
-    <artifactId>pom</artifactId>
-    <version>6-SNAPSHOT</version>
+    <artifactId>mycila-pom</artifactId>
+    <version>1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>pom</name>
+    <name>Mycila POM</name>
     <description>Parent POM</description>
-    <inceptionYear>2011</inceptionYear>
+    <inceptionYear>2013</inceptionYear>
     <url>http://github.com/mycila/pom</url>
 
     <properties>
