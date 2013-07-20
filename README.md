@@ -6,3 +6,4 @@ Parent POM for Mycila projects
         <version>X</version>
     </parent>
 
+[![Build Status](https://travis-ci.org/mycila/pom.png?branch=master)](https://travis-ci.org/mycila/pom)
