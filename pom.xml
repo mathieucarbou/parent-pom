@@ -1,3 +1,20 @@
+<!--
+
+    Copyright (C) 2013 Mycila (mathieu.carbou@gmail.com)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
@@ -10,20 +27,21 @@
     <name>Mycila POM</name>
     <description>Parent POM</description>
     <inceptionYear>2013</inceptionYear>
-    <url>http://github.com/mycila/pom</url>
+    <url>http://mycila.github.io/${mycila.github.name}</url>
 
     <properties>
         <jdk.version>1.7</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <osgi.private>com.mycila.internal</osgi.private>
+        <osgi.private>com.mycila.${mycila.github.name}.internal</osgi.private>
         <osgi.import>*</osgi.import>
-        <osgi.export>!com.mycila.internal*,com.mycila*;version="${project.version}";-noimport:=true</osgi.export>
+        <osgi.export>!com.mycila.${mycila.github.name}.internal*,com.mycila.${mycila.github.name}*;version="${project.version}";-noimport:=true</osgi.export>
+        <mycila.github.name>pom</mycila.github.name>
     </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:mycila/pom.git</connection>
-        <developerConnection>scm:git:git@github.com:mycila/pom.git</developerConnection>
-        <url>http://github.com/mycila/pom</url>
+        <connection>scm:git:https://github.com/mycila/${mycila.github.name}.git</connection>
+        <developerConnection>scm:git:git@github.com:mycila/${mycila.github.name}.git</developerConnection>
+        <url>http://github.com/mycila/${mycila.github.name}</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -32,11 +50,29 @@
         <url>http://www.mycila.com/</url>
     </organization>
 
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/mycila/${mycila.github.name}/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>Travis</system>
+        <url>https://travis-ci.org/mycila/${mycila.github.name}</url>
+    </ciManagement>
+
     <developers>
         <developer>
             <id>mathieucarbou</id>
             <name>Mathieu Carbou</name>
             <email>mathieu.carbou@gmail.com</email>
+            <url>https://github.com/mathieucarbou</url>
+            <organization>Mycila</organization>
+            <organizationUrl>http://mycila.com/</organizationUrl>
+            <roles>
+                <role>leader</role>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
         </developer>
     </developers>
 
@@ -202,7 +238,7 @@
                             </filter>
                         </filters>
                         <transformers>
-                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                         </transformers>
                     </configuration>
                     <executions>
@@ -219,31 +255,18 @@
                     <version>2.4</version>
                 </plugin>
                 <plugin>
-                    <groupId>com.mycila.maven-license-plugin</groupId>
-                    <artifactId>maven-license-plugin</artifactId>
-                    <version>1.9.0</version>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>2.0</version>
                     <configuration>
                         <header>com/mycila/licenses/APACHE-2</header>
-                        <strictCheck>true</strictCheck>
                         <properties>
                             <owner>Mycila</owner>
                             <year>${project.inceptionYear}</year>
                             <email>mathieu.carbou@gmail.com</email>
                         </properties>
                         <excludes>
-                            <exclude>**/README</exclude>
-                            <exclude>**/*.md</exclude>
                             <exclude>src/test/resources/**</exclude>
-                            <exclude>src/main/resources/**</exclude>
-                            <exclude>**/*.ods</exclude>
-                            <exclude>**/.gitignore</exclude>
-                            <exclude>**/jndi.properties</exclude>
-                            <exclude>**/logging.properties</exclude>
-                            <exclude>**/dependency-reduced-pom.xml</exclude>
-                            <exclude>**/*.swf</exclude>
-                            <exclude>**/pom.xml.releaseBackup</exclude>
-                            <exclude>.idea/**</exclude>
-                            <exclude>.gitignore</exclude>
                         </excludes>
                     </configuration>
                     <dependencies>
@@ -326,6 +349,28 @@
                         </instructions>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>3.2</version>
+                    <configuration>
+                        <detail>true</detail>
+                        <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>generate-helpmojo</id>
+                            <goals>
+                                <goal>helpmojo</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>generate-descriptor</id>
+                            <goals>
+                                <goal>descriptor</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -341,8 +386,8 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>com.mycila.maven-license-plugin</groupId>
-                <artifactId>maven-license-plugin</artifactId>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
                 <executions>
                     <execution>
                         <goals>
@@ -368,6 +413,21 @@
             </plugin>
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>3.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
+        </plugins>
+    </reporting>
 
     <profiles>
         <profile>
