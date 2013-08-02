@@ -3,7 +3,7 @@
 Mycila parent POM
 
  - __Build Status:__ [![Build Status](https://travis-ci.org/mycila/pom.png?branch=master)](https://travis-ci.org/mycila/pom)
- - __Issues:__ https://github.com/mycila/license-maven-plugin/issues
+ - __Issues:__ https://github.com/mycila/pom/issues
 
 ## Maven ##
 
@@ -25,4 +25,4 @@ __Declaration__
 
 ## Documentation ##
 
- - [Version 2](http://mycila.github.io/license-maven-plugin/reports/2/index.html)
+ - [Version 2](http://mycila.github.io/pom/reports/2/index.html)
