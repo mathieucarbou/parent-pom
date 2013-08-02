@@ -23,6 +23,7 @@ __Declaration__
         <version>X</version>
     </parent>
 
-## Documentation ##
+## Maven Sites ##
 
  - [Version 2](http://mycila.github.io/pom/reports/2/index.html)
+ - [Version 3](http://mycila.github.io/pom/reports/3/index.html)
