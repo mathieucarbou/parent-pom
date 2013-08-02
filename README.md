@@ -1,4 +1,21 @@
-Parent POM for Mycila projects
+# Maven License Plugin #
+
+Mycila parent POM
+
+ - __Build Status:__ [![Build Status](https://travis-ci.org/mycila/pom.png?branch=master)](https://travis-ci.org/mycila/pom)
+ - __Issues:__ https://github.com/mycila/license-maven-plugin/issues
+
+## Maven ##
+
+ __Releases__
+
+Available in Maven Central Repository: http://repo1.maven.org/maven2/com/mycila/pom/
+
+ __Snapshots__
+
+Available in OSS Repository:  https://oss.sonatype.org/content/repositories/snapshots/com/mycila/pom/
+
+__Declaration__
 
     <parent>
         <groupId>com.mycila</groupId>
@@ -6,4 +23,6 @@ Parent POM for Mycila projects
         <version>X</version>
     </parent>
 
-[![Build Status](https://travis-ci.org/mycila/pom.png?branch=master)](https://travis-ci.org/mycila/pom)
+## Documentation ##
+
+ - [Version 2](http://mycila.github.io/license-maven-plugin/reports/2/index.html)
