@@ -27,3 +27,5 @@ __Declaration__
 
  - [Version 2](http://mycila.github.io/pom/reports/2/index.html)
  - [Version 3](http://mycila.github.io/pom/reports/3/index.html)
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/a20ded47d7533f559376e3f026b94f84 "githalytics.com")](http://githalytics.com/mycila/pom)
