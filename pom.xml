@@ -37,6 +37,7 @@
         <osgi.export>!com.mycila.${mycila.github.name}.internal*,com.mycila.${mycila.github.name}*;version="${project.version}";-noimport:=true</osgi.export>
         <mycila.github.name>pom</mycila.github.name>
         <groovy.version>2.2.2</groovy.version>
+        <jetty.version>9.1.2.v20140210</jetty.version>
     </properties>
 
     <scm>
@@ -260,7 +261,7 @@
                             </filter>
                         </filters>
                         <transformers>
-                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                         </transformers>
                     </configuration>
                     <executions>
@@ -284,7 +285,6 @@
                         <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
                         <properties>
                             <owner>Mycila</owner>
-                            <year>${project.inceptionYear}</year>
                             <email>mathieu@mycila.com</email>
                         </properties>
                         <excludes>
@@ -307,11 +307,24 @@
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
-                    <version>9.0.4.v20130625</version>
+                    <version>${jetty.version}</version>
                     <configuration>
                         <stopPort>8090</stopPort>
                         <stopKey>stop</stopKey>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.bluetrainsoftware.maven</groupId>
+                    <artifactId>groovydoc-maven-plugin</artifactId>
+                    <version>1.2</version>
+                    <executions>
+                        <execution>
+                            <id>attach-docs</id>
+                            <goals>
+                                <goal>attach-docs</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
@@ -324,6 +337,19 @@
                             <link>http://docs.oracle.com/javase/7/docs/api</link>
                         </links>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.bluetrainsoftware.maven</groupId>
+                    <artifactId>groovydoc-maven-plugin</artifactId>
+                    <version>1.2</version>
+                    <executions>
+                        <execution>
+                            <id>attach-docs</id>
+                            <goals>
+                                <goal>attach-docs</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.felix</groupId>
@@ -446,6 +472,31 @@
             </activation>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>com.bluetrainsoftware.maven</groupId>
+                        <artifactId>groovydoc-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-docs</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>attach-docs</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.bluetrainsoftware.maven</groupId>
+                        <artifactId>groovydoc-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-docs</id>
+                                <goals>
+                                    <goal>attach-docs</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
                     <plugin>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <executions>
