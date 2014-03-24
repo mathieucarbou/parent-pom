@@ -21,7 +21,7 @@
 
     <groupId>com.mycila</groupId>
     <artifactId>mycila-pom</artifactId>
-    <version>6-SNAPSHOT</version>
+    <version>6</version>
     <packaging>pom</packaging>
 
     <name>Mycila POM</name>
@@ -44,7 +44,7 @@
         <connection>scm:git:https://github.com/mycila/${mycila.github.name}.git</connection>
         <developerConnection>scm:git:git@github.com:mycila/${mycila.github.name}.git</developerConnection>
         <url>http://github.com/mycila/${mycila.github.name}</url>
-        <tag>HEAD</tag>
+        <tag>mycila-pom-6</tag>
     </scm>
 
     <organization>
