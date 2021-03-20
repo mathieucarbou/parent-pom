@@ -21,7 +21,7 @@
 
     <groupId>com.mycila</groupId>
     <artifactId>mycila-pom</artifactId>
-    <version>7-SNAPSHOT</version>
+    <version>8-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Mycila POM</name>
