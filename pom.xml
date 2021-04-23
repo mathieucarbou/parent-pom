@@ -1,6 +1,6 @@
 <!--
 
-    Copyright (C) 2013 Mycila (mathieu.carbou@gmail.com)
+    Copyright (C) 2013 Mycila (info@mathieu.photography)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -63,8 +63,8 @@
     <developers>
         <developer>
             <id>mathieucarbou</id>
-            <name>Mathieu Carbou</name>
-            <email>mathieu.carbou@gmail.com</email>
+            <name>Mycila</name>
+            <email>info@mathieu.photography</email>
             <url>https://github.com/mathieucarbou</url>
             <organization>Mycila</organization>
             <organizationUrl>https://mycila.mathieu.photography/</organizationUrl>
@@ -175,8 +175,8 @@
                     <configuration>
                         <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
                         <properties>
-                            <owner>Mathieu Carbou</owner>
-                            <email>mathieu.carbou@gmail.com</email>
+                            <owner>Mycila</owner>
+                            <email>info@mathieu.photography</email>
                         </properties>
                         <excludes>
                             <exclude>src/test/resources/**</exclude>
