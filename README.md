@@ -30,5 +30,7 @@ __Declaration__
 
 ## Releasing ##
 
+```
 mvn release:prepare
 mvn release:perform -Darguments="-Dgpg.keyname=EDEA921A"
+```
