@@ -28,3 +28,9 @@ __Declaration__
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/a20ded47d7533f559376e3f026b94f84 "githalytics.com")](http://githalytics.com/mycila/pom)
 
+## Releasing ##
+
+```
+mvn release:prepare
+mvn release:perform -Darguments="-Dgpg.keyname=EDEA921A"
+```
