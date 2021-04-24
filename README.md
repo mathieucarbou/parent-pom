@@ -1,7 +1,7 @@
 Parent POM
 
- - __Build Status:__ [![Build Status](https://travis-ci.org/mycila/pom.png?branch=master)](https://travis-ci.org/mycila/pom)
- - __Issues:__ https://github.com/mycila/pom/issues
+ - __Build Status:__ [![Build Status](https://travis-ci.org/mathieucarbou/parent-pom.png?branch=master)](https://travis-ci.org/mathieucarbou/parent-pom)
+ - __Issues:__ https://github.com/mathieucarbou/parent-pom/issues
 
 ## Maven ##
 
@@ -23,8 +23,8 @@ __Declaration__
 
 ## Maven Sites ##
 
- - [Version 2](http://mycila.github.io/pom/reports/2/index.html)
- - [Version 3](http://mycila.github.io/pom/reports/3/index.html)
+ - [Version 2](https://code.mathieu.photography/parent-pom/reports/2/index.html)
+ - [Version 3](https://code.mathieu.photography/parent-pom/reports/3/index.html)
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/a20ded47d7533f559376e3f026b94f84 "githalytics.com")](http://githalytics.com/mycila/pom)
 
