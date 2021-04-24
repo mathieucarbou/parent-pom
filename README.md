@@ -1,4 +1,4 @@
-Mycila parent POM
+Parent POM
 
  - __Build Status:__ [![Build Status](https://travis-ci.org/mycila/pom.png?branch=master)](https://travis-ci.org/mycila/pom)
  - __Issues:__ https://github.com/mycila/pom/issues
