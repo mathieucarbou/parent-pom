@@ -26,8 +26,8 @@ before_install:
   - |
     if [ "${TRAVIS_OS_NAME}" == windows ]; then
       choco install -y zulu8
-      choco install -y maven --version 3.3.1
-      export PATH=/C/Program\ Files/Zulu/zulu-8/bin:/C/ProgramData/chocolatey/lib/maven/apache-maven-3.3.1/bin:$PATH
+      choco install -y maven --version 3.8.1
+      export PATH=/C/Program\ Files/Zulu/zulu-8/bin:/C/ProgramData/chocolatey/lib/maven/apache-maven-3.8.1/bin:$PATH
       echo "PATH=${PATH}"
     fi
 
