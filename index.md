@@ -1,6 +1,6 @@
 Parent POM
 
- - __Build Status:__ [![Build Status](https://travis-ci.org/mathieucarbou/parent-pom.png?branch=master)](https://travis-ci.org/mathieucarbou/parent-pom)
+ - __Build Status:__ [![Build Status](https://travis-ci.com/mathieucarbou/parent-pom.png?branch=master)](https://travis-ci.com/mathieucarbou/parent-pom)
  - __Issues:__ https://github.com/mathieucarbou/parent-pom/issues
 
 ## Maven ##
