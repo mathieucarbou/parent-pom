@@ -27,21 +27,29 @@
     <name>Mycila POM</name>
     <description>Parent POM</description>
     <inceptionYear>2013</inceptionYear>
-    <url>http://mycila.github.io/${mycila.github.name}</url>
+    <url>https://${parameter.site.subdomain}.github.io/${project.artifactId}</url>
 
     <properties>
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <osgi.private>com.mycila.${mycila.github.name}.internal</osgi.private>
         <osgi.import>*</osgi.import>
         <osgi.export>!com.mycila.${mycila.github.name}.internal*,com.mycila.${mycila.github.name}*;version="${project.version}";-noimport:=true</osgi.export>
-        <mycila.github.name>pom</mycila.github.name>
+        <mycila.github.name>mycila</mycila.github.name>
+
+        <parameter.site.domain>github.com</parameter.site.domain>
+        <parameter.site.subdomain>mathieucarbou</parameter.site.subdomain>
+        <parameter.site.root.uri>${project.artifactId}</parameter.site.root.uri>
+        <parameter.site.github.deploy.skip>false</parameter.site.github.deploy.skip>
+        <parameter.site.maven.deploy.skip>true</parameter.site.maven.deploy.skip>
+        <parameter.site.uri>${parameter.site.subdomain}/${parameter.site.root.uri}/${project.version}/</parameter.site.uri>
     </properties>
 
     <scm>
-        <connection>scm:git:https://github.com/mycila/${mycila.github.name}.git</connection>
-        <developerConnection>scm:git:git@github.com:mycila/${mycila.github.name}.git</developerConnection>
-        <url>http://github.com/mycila/${mycila.github.name}</url>
+        <connection>scm:git:git@${parameter.site.domain}:${parameter.site.subdomain}/${parameter.site.root.uri}.git</connection>
+        <developerConnection>scm:git:git@${parameter.site.domain}:${parameter.site.subdomain}/${parameter.site.root.uri}.git</developerConnection>
+        <url>https://${parameter.site.domain}/${parameter.site.subdomain}/${parameter.site.root.uri}</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -52,12 +60,12 @@
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/mycila/${mycila.github.name}/issues</url>
+        <url>https://${parameter.site.domain}/${parameter.site.subdomain}/${parameter.site.root.uri}/issues</url>
     </issueManagement>
 
     <ciManagement>
         <system>Travis</system>
-        <url>https://travis-ci.org/mycila/${mycila.github.name}</url>
+        <url>https://travis-ci.com/${parameter.site.subdomain}/${parameter.site.root.uri}</url>
     </ciManagement>
 
     <developers>
@@ -94,11 +102,46 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
+        <site>
+            <id>${parameter.site.domain}</id>
+            <name>${parameter.site.domain}</name>
+            <url>scm:git:ssh://git@${parameter.site.domain}/${parameter.site.uri}.git</url>
+        </site>
     </distributionManagement>
 
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>com.github.github</groupId>
+                    <artifactId>site-maven-plugin</artifactId>
+                    <version>0.12</version>
+                    <configuration>
+                        <server>${parameter.site.domain}</server>
+                        <path>${parameter.site.location}</path>
+                        <merge>true</merge>
+                        <message>Updating maven generated documentation for ${project.version}</message>
+                        <skip>${parameter.site.github.deploy.skip}</skip>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>site</goal>
+                            </goals>
+                            <phase>site-deploy</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.9.1</version>
+                    <configuration>
+                        <relativizeDecorationLinks>false</relativizeDecorationLinks>
+                        <attach>false</attach>
+                        <skipDeploy>${parameter.site.maven.deploy.skip}</skipDeploy>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>1.4.1</version>
@@ -244,8 +287,9 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-plugin-plugin</artifactId>
-                    <version>3.6.3</version>
+                    <version>3.6.1</version>
                     <configuration>
                         <detail>true</detail>
                         <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
@@ -268,6 +312,26 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-site-descriptor</id>
+                        <goals>
+                            <goal>attach-descriptor</goal>
+                        </goals>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <attach>true</attach>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <executions>
