@@ -159,7 +159,7 @@
                     <configuration>
                         <filesets>
                             <fileset>
-                                <directory>${basedir}</directory>
+                                <directory>${project.basedir}</directory>
                                 <includes>
                                     <include>dependency-reduced-pom.xml</include>
                                     <include>dependency-reduced-pom-*.xml</include>
