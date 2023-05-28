@@ -191,7 +191,7 @@
                         <encoding>UTF-8</encoding>
                         <maxmemory>1g</maxmemory>
                         <links>
-                            <link>http://docs.oracle.com/javase/7/docs/api</link>
+                            <link>https://docs.oracle.com/javase/8/docs/api/</link>
                         </links>
                     </configuration>
                 </plugin>
