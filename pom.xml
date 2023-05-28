@@ -56,8 +56,8 @@
     </issueManagement>
 
     <ciManagement>
-        <system>Travis</system>
-        <url>https://travis-ci.org/mycila/${mycila.github.name}</url>
+        <system>GitHub</system>
+        <url>https://github.com/mycila/${mycila.github.name}/actions</url>
     </ciManagement>
 
     <developers>
