@@ -28,7 +28,10 @@ __Declaration__
 
 ## Releasing ##
 
-```
+```bash
 ./mvnw release:prepare
 ./mvnw release:perform -Darguments="-Dgpg.keyname=EDEA921A"
+
+# Fallback
+./mvnw deploy -Dgpg.keyname=EDEA921A -Dgpg.useagent=true -DperformRelease=true 
 ```
