@@ -29,6 +29,6 @@ __Declaration__
 ## Releasing ##
 
 ```
-./mvn release:prepare
-./mvn release:perform -Darguments="-Dgpg.keyname=EDEA921A"
+./mvnw release:prepare
+./mvnw release:perform -Darguments="-Dgpg.keyname=EDEA921A"
 ```
