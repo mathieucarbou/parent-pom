@@ -193,6 +193,7 @@
                     <configuration>
                         <source>${jdk.version}</source>
                         <encoding>UTF-8</encoding>
+                        <legacyMode>true</legacyMode>
                         <maxmemory>1g</maxmemory>
                         <notimestamp>true</notimestamp>
                         <links>
