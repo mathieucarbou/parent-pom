@@ -177,7 +177,7 @@
                             <licenseSet>
                               <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
                               <properties>
-                                  <year>${project.inceptionYear}-2021</year>
+                                  <year>${project.inceptionYear}-2023</year>
                                   <email>mathieu.carbou@gmail.com</email>
                               </properties>
                               <excludes>
